@@ -1,12 +1,19 @@
 namespace Garage
 {
-    public class Cessna : Vehicle
+    public class Cessna : Vehicle, IGas
     {
         public double FuelCapacity { get; set; }
+        private double _currentTankPercentage;
+        public double CurrentTankPercentage
+        {
+            get { return _currentTankPercentage; }
+            set { _currentTankPercentage = value; }
+        }
 
         public void RefuelTank()
         {
-            // method definition omitted
+            CurrentTankPercentage = 100;
+            Console.WriteLine("Fueled up!");
         }
 
         public override void Drive()
